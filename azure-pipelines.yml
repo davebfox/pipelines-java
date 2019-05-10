@@ -1,7 +1,4 @@
 # Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
 - master
@@ -20,3 +17,12 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 - script: echo hello world
+- task: CmdLine@2
+  inputs:
+    script: 'echo hello dave
+      
+      echo Use the environment variables input below to pass secret variables to this script'
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
