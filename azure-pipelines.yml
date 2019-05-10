@@ -8,14 +8,15 @@ trigger:
 
 # Set variables once
 variables:
-  configuration: debug
-  platform: x64
   global_variable: value    # this is available to all jobs
 
 jobs:
 - job: A
 pool:
   vmImage: 'ubuntu-latest'
+  variables:
+  configuration: debug
+  platform: x64
  steps:
 - task: Maven@3
   inputs:
