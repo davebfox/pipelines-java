@@ -1,6 +1,6 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 variables:
-  var1: value1
+  var1: $(dave1)
 jobs:
 - job: One
   steps:
