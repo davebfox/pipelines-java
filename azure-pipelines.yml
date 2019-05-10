@@ -8,13 +8,8 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  variables:
-  configuration: debug
-  platform: x64
 
-jobs:
-- job: A
- steps:
+steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -25,36 +20,3 @@ jobs:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    
-    # Use them once
-- task: MSBuild@1
-  inputs:
-    solution: solution1.sln
-    configuration: $(configuration) # Use the variable
-    platform: $(platform)
-
-# Use them again
-- task: MSBuild@1
-  inputs:
-    solution: solution2.sln
-    configuration: $(configuration) # Use the variable
-    platform: $(platform)
-  
-
-- job: B
-  variables:
-    job_variable1: value1    # this is only available in job1
-  steps:
-  - bash: echo $(global_variable)
-  - bash: echo $(job_variable1)
-  - bash: echo $JOB_VARIABLE1 # variables are available in the script environment too
-
-- job: C
-  variables:
-    job_variable2: value2    # this is only available in job2
-  steps:
-  - bash: echo $(global_variable)
-  - bash: echo $(job_variable2)
-  - bash: echo $GLOBAL_VARIABLE
-
-
