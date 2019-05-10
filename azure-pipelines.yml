@@ -1,9 +1,3 @@
-pool:
-  vmImage: 'Ubuntu-16.04'
-
-trigger:
-- master
-
 name: $(Date:yyyyMMdd)$(Rev:.r)
 variables:
   var1: $(dave1)
