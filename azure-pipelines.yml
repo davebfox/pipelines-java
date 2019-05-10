@@ -6,11 +6,8 @@
 trigger:
 - master
 
-jobs:
-- job: job1
 pool:
   vmImage: 'ubuntu-latest'
-
 steps:
 - task: Maven@3
   inputs:
@@ -22,3 +19,4 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- script: echo hello world
