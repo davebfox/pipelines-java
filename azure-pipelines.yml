@@ -6,17 +6,14 @@
 trigger:
 - master
 
-# Set variables once
-variables:
-  global_variable: value    # this is available to all jobs
-
-jobs:
-- job: A
 pool:
   vmImage: 'ubuntu-latest'
   variables:
   configuration: debug
   platform: x64
+
+jobs:
+- job: A
  steps:
 - task: Maven@3
   inputs:
@@ -45,8 +42,6 @@ pool:
   
 
 - job: B
-  pool:
-    vmImage: 'ubuntu-16.04'
   variables:
     job_variable1: value1    # this is only available in job1
   steps:
@@ -55,8 +50,6 @@ pool:
   - bash: echo $JOB_VARIABLE1 # variables are available in the script environment too
 
 - job: C
-  pool:
-    vmImage: 'ubuntu-16.04'
   variables:
     job_variable2: value2    # this is only available in job2
   steps:
