@@ -4,4 +4,8 @@ variables:
 jobs:
 - job: One
   steps:
-  - script: echo First step! $(var1)
+  - script: echo First step! Job1 $(var1)
+
+- job: Two
+  steps:
+  - script: echo First step! Job2 $(var1)
