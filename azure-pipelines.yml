@@ -1,5 +1,8 @@
 # Maven
 
+trigger:
+- master
+
 name: $(Date:yyyyMMdd)$(Rev:.r)
 variables:
   var1: value1
@@ -8,8 +11,6 @@ jobs:
   steps:
   - script: echo First step!
 
-trigger:
-- master
 
 pool:
   vmImage: 'ubuntu-latest'
